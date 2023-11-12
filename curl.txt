@@ -1,0 +1,58 @@
+POST /generate_report
+
+curl --location --request POST 'https://d5dg1j9kt695d30blp03.apigw.yandexcloud.net/generate_report' \
+--header 'X-Nickname: Nick' \
+--header 'X-Cohort: 18' \
+--header 'X-Project: True' \
+--header 'X-API-KEY: 5f55e6c0-e9e5-4a9c-b313-63c01fc31460' \
+--data-raw ''
+
+{"task_id":"MjAyMy0xMS0wMlQyMTo0ODo1NglOaWNr"}
+
+--------------------------------------------------------------------------------------------------------------
+GET /get_report
+
+curl --location --request GET 'https://d5dg1j9kt695d30blp03.apigw.yandexcloud.net/get_report?task_id=MjAyMy0xMS0wMlQyMTo0ODo1NglOaWNr' \
+--header 'X-Nickname: Nick' \
+--header 'X-Cohort: 18' \
+--header 'X-Project: True' \
+--header 'X-API-KEY: 5f55e6c0-e9e5-4a9c-b313-63c01fc31460'
+
+{"task_id":"MjAyMy0xMS0wMlQyMTo0ODo1NglOaWNr",
+    "status":"SUCCESS",
+    "data":{
+        "report_id":"TWpBeU15MHhNUzB3TWxReU1UbzBPRG8xTmdsT2FXTnI=",
+            "start_day":"2023-10-03 00:00:00",
+            "end_date":"2023-10-25 00:00:00",
+            "s3_path":
+                {"customer_research":"https://storage.yandexcloud.net/s3-sprint3/cohort_18/Nick/project/TWpBeU15MHhNUzB3TWxReU1UbzBPRG8xTmdsT2FXTnI=/customer_research.csv",
+                "user_order_log":"https://storage.yandexcloud.net/s3-sprint3/cohort_18/Nick/project/TWpBeU15MHhNUzB3TWxReU1UbzBPRG8xTmdsT2FXTnI=/user_order_log.csv",
+                "user_activity_log":"https://storage.yandexcloud.net/s3-sprint3/cohort_18/Nick/project/TWpBeU15MHhNUzB3TWxReU1UbzBPRG8xTmdsT2FXTnI=/user_activity_log.csv",
+                "price_log":"https://storage.yandexcloud.net/s3-sprint3/cohort_18/Nick/project/TWpBeU15MHhNUzB3TWxReU1UbzBPRG8xTmdsT2FXTnI=/price_log.csv"
+                }
+            }
+}  
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+GET /get_increment
+
+curl --location --request GET 'https://d5dg1j9kt695d30blp03.apigw.yandexcloud.net/get_increment?report_id=TWpBeU15MHhNUzB3TWxReU1UbzBPRG8xTmdsT2FXTnI=&date=2023-11-01T00:00:00' \
+--header 'X-Nickname: Nick' \
+--header 'X-Cohort: 18' \
+--header 'X-Project: True' \
+--header 'X-API-KEY: 5f55e6c0-e9e5-4a9c-b313-63c01fc31460'
+
+
+{"report_id":"TWpBeU15MHhNUzB3TWxReU1UbzBPRG8xTmdsT2FXTnI=",
+    "date":"2023-11-01 00:00:00",
+    "status":"SUCCESS",
+    "data":{
+        "increment_id":"MjAyMy0xMS0wMVQwMDowMDowMAlUV3BCZVUxNU1IaE5VekIzVFd4UmVVMVViekJQUkc4eFRtZHNUMkZYVG5JPQ==",
+        "s3_path":{
+            "customer_research_inc":"https://storage.yandexcloud.net/s3-sprint3/cohort_18/Nick/project/MjAyMy0xMS0wMVQwMDowMDowMAlUV3BCZVUxNU1IaE5VekIzVFd4UmVVMVViekJQUkc4eFRtZHNUMkZYVG5JPQ==/customer_research_inc.csv",
+            "user_order_log_inc":"https://storage.yandexcloud.net/s3-sprint3/cohort_18/Nick/project/MjAyMy0xMS0wMVQwMDowMDowMAlUV3BCZVUxNU1IaE5VekIzVFd4UmVVMVViekJQUkc4eFRtZHNUMkZYVG5JPQ==/user_order_log_inc.csv",
+            "user_activity_log_inc":"https://storage.yandexcloud.net/s3-sprint3/cohort_18/Nick/project/MjAyMy0xMS0wMVQwMDowMDowMAlUV3BCZVUxNU1IaE5VekIzVFd4UmVVMVViekJQUkc4eFRtZHNUMkZYVG5JPQ==/user_activity_log_inc.csv",
+            "price_log_inc":"https://storage.yandexcloud.net/s3-sprint3/cohort_18/Nick/project/TWpBeU15MHhNUzB3TWxReU1UbzBPRG8xTmdsT2FXTnI=/price_log_inc.csv"
+                }
+            }
+}
